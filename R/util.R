@@ -16,6 +16,41 @@ stat_mode <- function(x, na.rm = FALSE) {
   unique_x[which.max(tabulate(match(x, unique_x)))]
 }
 
+#' Compute a summary function over a rolling window
+#'
+#' blah
+#' @param fun Bare, unquoted function to be applied over the window
+#' @param x Vector to which \code{fun} will be applied
+#' @param n Size of the window
+#' @param default Default value used for non-existent values on either end of
+#'     \code{x}
+#' @param forward A logical value indicating whether the window should go
+#'     forwards from each value or backwards (the default)
+#' @param fun_value A generalized vector to serve as a template for the return
+#'     value from \code{fun}. If \code{NULL} (the default) it is assumed that
+#'     the return value is the same type as \code{x}. \code{fun_value} is
+#'     simply passed to \code{vapply}, so it uses the same format.
+#' @return A vector with the same length as \code{x}.
+#' @examples
+#'   rolling(mean, rnorm(50), n = 10, default = 0.5)
+#'   rolling(paste, 1:10, n = 3, forward = TRUE, fun_value = character, collapse = ",")
+#' @export
+rolling <- function(fun, x, n, default = NA, forward = FALSE, fun_value = NULL,
+                    ...) {
+  # Expand x with default values.
+  def_vals <- rep(default, n - 1)
+  if (forward) {
+    x_exp <- c(x, def_vals)
+  } else {
+    x_exp <- c(def_vals, x)
+  }
+  if (is.null(fun_value)) {
+    fun_value <- get(mode(x))
+  }
+  vapply(1:length(x), function(x) fun(x_exp[x:(x + n - 1)], ...),
+         FUN.VALUE = fun_value(1))
+}
+
 
 #' Print the time taken to run an expression
 #'

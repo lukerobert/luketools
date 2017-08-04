@@ -2,5 +2,6 @@
 
 export(holiday_dates)
 export(parallelize)
+export(rolling)
 export(run_time)
 export(stat_mode)
