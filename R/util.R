@@ -16,9 +16,10 @@ stat_mode <- function(x, na.rm = FALSE) {
   unique_x[which.max(tabulate(match(x, unique_x)))]
 }
 
-#' Compute a summary function over a rolling window
+#' Rolling window computations
 #'
-#' blah
+#' Computes the value of a summary function over a rolling window of nearby
+#' values in the vector.
 #' @param fun Bare, unquoted function to be applied over the window
 #' @param x Vector to which \code{fun} will be applied
 #' @param n Size of the window
@@ -112,8 +113,7 @@ run_time <- function(expr, format = "auto", digits = 2, message = NULL) {
 parallelize <- function(expr, num_cores = NULL, run_time = TRUE, ...) {
   if (is.null(num_cores)) num_cores <- parallel::detectCores() - 1
   result <- tryCatch({
-    cl <- parallel::makeCluster(num_cores)
-    doParallel::registerDoParallel(cl)
+    doParallel::registerDoParallel(num_cores)
     if (run_time) {
       run_time(expr, ...)
     } else {
@@ -121,7 +121,6 @@ parallelize <- function(expr, num_cores = NULL, run_time = TRUE, ...) {
     }
   }, finally = {
     doParallel::stopImplicitCluster()
-    parallel::stopCluster(cl)
   })
   result
 }
