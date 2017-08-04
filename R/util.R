@@ -2,9 +2,16 @@
 #'
 #' Given a numeric vector returns the most frequently occurring value.
 #' @param x Numeric vector
+#' @param na.rm A logical value indicating whether \code{NA} values should be
+#' stripped before the computation proceeds.
 #' @return A unit numeric vector representing the most frequent value in \code{x}
 #' @export
-stat_mode <- function(x) {
+stat_mode <- function(x, na.rm = FALSE) {
+  if (na.rm) {
+    x <- x[!is.na(x)]
+  } else {
+    if (any(is.na(x))) return(NA)
+  }
   unique_x <- unique(x)
   unique_x[which.max(tabulate(match(x, unique_x)))]
 }

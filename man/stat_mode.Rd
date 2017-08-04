@@ -4,10 +4,13 @@
 \alias{stat_mode}
 \title{Find the mode of a vector}
 \usage{
-stat_mode(x)
+stat_mode(x, na.rm = FALSE)
 }
 \arguments{
 \item{x}{Numeric vector}
+
+\item{na.rm}{A logical value indicating whether \code{NA} values should be
+stripped before the computation proceeds.}
 }
 \value{
 A unit numeric vector representing the most frequent value in \code{x}
