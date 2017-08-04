@@ -2,7 +2,7 @@
 % Please edit documentation in R/util.R
 \name{rolling}
 \alias{rolling}
-\title{Compute a summary function over a rolling window}
+\title{Rolling window computations}
 \usage{
 rolling(fun, x, n, default = NA, forward = FALSE, fun_value = NULL, ...)
 }
@@ -28,7 +28,8 @@ simply passed to \code{vapply}, so it uses the same format.}
 A vector with the same length as \code{x}.
 }
 \description{
-blah
+Computes the value of a summary function over a rolling window of nearby
+values in the vector.
 }
 \examples{
   rolling(mean, rnorm(50), n = 10, default = 0.5)
