@@ -4,12 +4,10 @@
 \alias{run_time}
 \title{Print the time taken to run an expression}
 \usage{
-run_time(expr, format = "auto", digits = 2, message = NULL)
+run_time(expr, message = NULL, digits = 2)
 }
 \arguments{
 \item{expr}{An expression to be evaluated.}
-
-\item{format}{Time formatting. Valid values are:}
 
 \item{message}{A string describing what you're doing. This will be appended
 to the start of the printed message. For example, if you set

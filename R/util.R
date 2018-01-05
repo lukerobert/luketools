@@ -48,8 +48,10 @@ rolling <- function(fun, x, n, default = NA, forward = FALSE, fun_value = NULL,
   if (is.null(fun_value)) {
     fun_value <- get(mode(x))
   }
-  vapply(1:length(x), function(x) fun(x_exp[x:(x + n - 1)], ...),
-         FUN.VALUE = fun_value(1))
+  vapply(
+    1:length(x), function(x) fun(x_exp[x:(x + n - 1)], ...),
+    FUN.VALUE = fun_value(1)
+  )
 }
 
 
@@ -61,7 +63,6 @@ rolling <- function(fun, x, n, default = NA, forward = FALSE, fun_value = NULL,
 #' benchmarking. This function simply evaluates the expression in \code{expr}
 #' and outputs the time taken as a \code{message}.
 #' @param expr An expression to be evaluated.
-#' @param format Time formatting. Valid values are:
 #' @param message A string describing what you're doing. This will be appended
 #' to the start of the printed message. For example, if you set
 #' \code{message = "run things"} the output will look like
@@ -70,7 +71,7 @@ rolling <- function(fun, x, n, default = NA, forward = FALSE, fun_value = NULL,
 #' \code{run_time} was called.
 #' @seealso \code{\link{system.time}} base R solution with more basic output.
 #' @export
-run_time <- function(expr, format = "auto", digits = 2, message = NULL) {
+run_time <- function(expr, message = NULL, digits = 2) {
   preamble <- "Time taken"
   if (!is.null(message)) {
     preamble <- paste(preamble, "to", message)
