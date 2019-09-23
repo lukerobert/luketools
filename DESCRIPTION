@@ -3,14 +3,19 @@ Type: Package
 Title: Luke's personal utilities and tools
 Version: 0.1.0
 Author: Luke Davis
-Maintainer: Luke Davis <luke.robert@gmail.com>
+Maintainer: Luke Davis <mail@lukedav.is>
 Description: Miscellaneous utility functions and all-around
-    useful things.
+  useful things.
 License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: purrr,
-    doParallel,
-    magrittr,
-    timeDate
+  dplyr,
+  glue,
+  readr,
+  stringr,
+  doParallel,
+  magrittr,
+  timeDate,
+  lubridate
 RoxygenNote: 6.0.1
