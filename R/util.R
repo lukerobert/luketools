@@ -330,3 +330,7 @@ extract_url_param <- function(url, param) {
 `%like%` <- function(string, pattern) {
   stringr::str_detect(string = string, pattern = pattern)
 }
+
+`%between%` <- function(x, y) {
+  x >= y[1] & x <= y[2]
+}

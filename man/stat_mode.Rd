@@ -9,11 +9,11 @@ stat_mode(x, na.rm = FALSE)
 \arguments{
 \item{x}{Numeric vector}
 
-\item{na.rm}{A logical value indicating whether \code{NA} values should be
+\item{na.rm}{A logical value indicating whether `NA` values should be
 stripped before the computation proceeds.}
 }
 \value{
-A unit numeric vector representing the most frequent value in \code{x}
+A unit numeric vector representing the most frequent value in `x`
 }
 \description{
 Given a numeric vector returns the most frequently occurring value.

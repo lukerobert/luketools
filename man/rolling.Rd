@@ -4,7 +4,8 @@
 \alias{rolling}
 \title{Rolling window computations}
 \usage{
-rolling(fun, x, n, default = NA, forward = FALSE, fun_value = NULL, ...)
+rolling(fun, x, n, default = NA, forward = FALSE, fun_value = NULL,
+  ...)
 }
 \arguments{
 \item{fun}{Bare, unquoted function to be applied over the window}
