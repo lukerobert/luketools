@@ -11,6 +11,9 @@ file_to_sql(path, con)
 
 \item{con}{Database connection object}
 }
+\value{
+
+}
 \description{
 Convert a file to a SQL list
 }

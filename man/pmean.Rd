@@ -14,5 +14,5 @@ The motivation behind this function is the base R functions `pmin`
   and `pmax`.
 
 A more general way to approach this type of problem is with
-  `purrr::lift`.
+  `[purrr::lift()]`.
 }

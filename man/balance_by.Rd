@@ -9,6 +9,8 @@ balance_by(data, var)
 \arguments{
 \item{data}{A tbl or data.frame. Internally, this function uses dplyr verbs,
 so it will work for local tables and remote tables in the warehouse.}
+
+\item{var}{Unquoted variable name to use for balancing.}
 }
 \value{
 `data` balanced by `var`

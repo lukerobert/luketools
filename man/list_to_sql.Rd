@@ -11,6 +11,9 @@ list_to_sql(x, con)
 
 \item{con}{Database connection object}
 }
+\value{
+
+}
 \description{
 Convert an R vector to a SQL list
 }

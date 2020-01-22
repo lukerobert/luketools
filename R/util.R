@@ -173,7 +173,7 @@ pmedian <- function(..., na.rm = TRUE) {
 #'
 #' @param data A tbl or data.frame. Internally, this function uses dplyr verbs,
 #' so it will work for local tables and remote tables in the warehouse.
-#' @param var
+#' @param var Unquoted variable name to use for balancing.
 #' @details Although you might most commonly use this function for binary
 #'   outcomes, it will also work if `var` has more than two values. In that case,
 #'   the subset for each value of `var` will be sampled down to match the
