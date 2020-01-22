@@ -279,3 +279,8 @@ extract_url_param <- function(url, param) {
 `%between%` <- function(x, y) {
   x >= min(y) & x <= max(y)
 }
+
+prop <- function(df, count_var = "n", name = "prop") {
+  # TODO: test
+  dplyr::mutate(df, {{name}} := {{count_var}} / sum({{count_var}}))
+}
