@@ -11,20 +11,20 @@ run_time(expr, message = NULL, digits = 2)
 
 \item{message}{A string describing what you're doing. This will be appended
 to the start of the printed message. For example, if you set
-\code{message = "run things"} the output will look like
-\code{Time taken to run things: 5.15 seconds}.}
+`message = "run things"` the output will look like
+`Time taken to run things: 5.15 seconds`.}
 }
 \value{
-The result of evaluating \code{expr} in the environment from which
-\code{run_time} was called.
+The result of evaluating `expr` in the environment from which
+`run_time` was called.
 }
 \description{
 Sometimes you just want to know how long something took. There are many
 more elaborate solutions for more formal benchmarking (like microbenchmark),
 but for some applications you don't want to repeat an action or do formal
-benchmarking. This function simply evaluates the expression in \code{expr}
-and outputs the time taken as a \code{message}.
+benchmarking. This function simply evaluates the expression in `expr`
+and outputs the time taken as a `message`.
 }
 \seealso{
-\code{\link{system.time}} base R solution with more basic output.
+`\link{system.time}` base R solution with more basic output.
 }
